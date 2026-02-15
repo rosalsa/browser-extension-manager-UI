@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap');
+
+:root {
+  /* Colors from Style Guide */
+  --red-500: hsl(3, 71%, 56%);
+  --red-400: hsl(3, 86%, 64%);
+  
+  /* Light Theme */
+  --bg-gradient: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+  --header-bg: hsl(200, 60%, 99%);
+  --card-bg: hsl(200, 60%, 99%);
+  --text-main: hsl(227, 75%, 14%);
+  --text-muted: hsl(226, 11%, 37%);
+  --border: hsl(217, 61%, 90%);
+  --filter-bg: hsl(0, 0%, 93%);
+}
+
+[data-theme="dark"] {
+  --bg-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+  --header-bg: hsl(225, 23%, 24%);
+  --card-bg: hsl(226, 25%, 17%);
+  --text-main: hsl(0, 0%, 93%);
+  --text-muted: hsl(0, 0%, 78%);
+  --border: hsl(225, 23%, 24%);
+  --filter-bg: hsl(225, 23%, 24%);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; transition: background 0.3s ease, color 0.3s ease; }
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-main);
+  min-height: 100vh;
+  padding-bottom: 4rem;
+}
+
+.container { max-width: 1110px; margin: 0 auto; padding: 0 1.5rem; }
+
+/* Header */
+.main-header {
+  background: var(--header-bg);
+  padding: 1.25rem 0;
+  margin-bottom: 3.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-content {
+  max-width: 1110px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-group { display: flex; align-items: center; gap: 0.75rem; }
+.logo-group h1 { font-size: 1.25rem; font-weight: 700; }
+
+.icon-btn {
+  background: var(--filter-bg);
+  border: 1px solid var(--border);
+  padding: 0.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Filters */
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.filter-tabs {
+  background: var(--filter-bg);
+  padding: 0.35rem;
+  border-radius: 50px;
+  display: flex;
+  gap: 0.25rem;
+}
+
+.filter-btn {
+  border: none;
+  background: transparent;
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  color: var(--text-main);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.filter-btn.active { background: var(--red-500); color: white; }
+
+/* Grid & Cards */
+.extensions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+.card-content { display: flex; gap: 1.25rem; margin-bottom: 1.5rem; }
+.card-icon { width: 56px; height: 56px; object-fit: contain; }
+
+.card-text h3 { margin-bottom: 0.5rem; font-size: 1.15rem; }
+.card-text p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; }
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  padding-top: 1.25rem;
+}
+
+/* Remove Button */
+.remove-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.remove-btn:hover { background: var(--red-500); color: white; border-color: var(--red-500); }
+
+/* Switch Toggle */
+.switch { position: relative; width: 48px; height: 24px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+  position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc; border-radius: 34px;
+}
+.slider:before {
+  position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px;
+  background-color: white; transition: .3s; border-radius: 50%;
+}
+input:checked + .slider { background-color: var(--red-500); }
+input:checked + .slider:before { transform: translateX(24px); }
+
+/* Attribution */
+.attribution { font-size: 11px; text-align: center; margin-top: 4rem; color: var(--text-muted); }
+.attribution a { color: var(--red-500); text-decoration: none; font-weight: 700; }
+
+@media (max-width: 600px) {
+  .list-header { flex-direction: column; align-items: flex-start; }
+  .filter-tabs { width: 100%; justify-content: space-between; }
+  .extensions-grid { grid-template-columns: 1fr; }
+}
