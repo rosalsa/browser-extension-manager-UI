@@ -39,8 +39,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/browser-extension-manager-ui-47b3OpehgC]
+- Live Site URL: [https://rosalsa.github.io/browser-extension-manager-UI/]
 
 ## My process
 
